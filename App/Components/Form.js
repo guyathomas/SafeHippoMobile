@@ -15,9 +15,6 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'column',
     zIndex: 1
-  },
-  fieldWrapper: {
-    
   }
 });
 
@@ -28,7 +25,6 @@ class Form extends React.Component {
   }
 
   render() {
-    console.log('props in Form', this)
     return (
       <View style={styles.container} >
         <View>
