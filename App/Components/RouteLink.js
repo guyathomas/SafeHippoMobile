@@ -30,11 +30,20 @@ class RouteLink extends React.Component {
     super(props);
   }
 
+  routeText () {
+    console.log('Props in routelink', this.props)
+    if (this.props.isLoading) {
+      return (<Text style={styles.linkText} >Finding the safest route...</Text>)
+    } else {
+      return (<Text style={styles.linkText} >{this.props.url}</Text>)
+    }
+  }
+
   render() {
     console.log('this.props.url in RouteLink', this.props.url)
     return (
       <View style={styles.container} >
-        <Text style={styles.linkText} >{this.props.url}</Text>
+        {this.routeText()}
       </View>
     );
   }

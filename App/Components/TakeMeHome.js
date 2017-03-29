@@ -29,10 +29,15 @@ class TakeMeHome extends React.Component {
     super(props);
   }
 
+  _clickHandler() {
+    this.props.getRoute()
+    this.props.setLoading()
+  }
+
   render() {
     return (
       <View style={styles.container} >
-        <TouchableHighlight onPress={this.props.getRoute}>
+        <TouchableHighlight onPress={this._clickHandler.bind(this)}>
           <View style={styles.button} >
             <Text style={styles.buttonText}>Take Me Home</Text>  
           </View>  

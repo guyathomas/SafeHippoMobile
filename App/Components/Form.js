@@ -29,10 +29,18 @@ const styles = StyleSheet.create({
 class Form extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isLoading: false
+    }
   }
 
   showLink() {
-    return this.props.url ? <RouteLink url={this.props.url} /> : <View />
+    console.log(this)
+    if (this.props.url) {
+      return (<RouteLink url={this.props.url} isLoading={this.props.isLoading} />)
+    } else {
+      return  (<View />)
+    }
   }
 
   render() {
@@ -44,10 +52,9 @@ class Form extends React.Component {
         <LocationField locationType='origin' updateLocation={this.props.updateLocation} />
         <LocationField locationType='destination' updateLocation={this.props.updateLocation} />
         <View style={styles.homeContainer} >
-          <TakeMeHome getRoute={this.props.getRoute} />
+          <TakeMeHome getRoute={this.props.getRoute} setLoading={this.props.setLoading} />
           {this.showLink()}
         </View>
-
       </View>
     );
   }

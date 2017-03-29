@@ -34,7 +34,8 @@ class RouteFinder extends React.Component {
     this.state = {
       origin: { lat: 37.78825, lon: -122.4324 },
       destination: { lat: 37.79825, lon: -122.4724 },
-      shortestRoute: {}
+      shortestRoute: {},
+      isLoading: false
     }
   }
 
@@ -70,8 +71,15 @@ class RouteFinder extends React.Component {
     .then(res => res.json())
     .then((parseRes) => {
       this.setState({
-        shortestRoute: parseRes
+        shortestRoute: parseRes,
+        isLoading: false
       })
+    })
+  }
+
+  setLoading() {
+    this.setState({
+      isLoading: true
     })
   }
 
@@ -87,7 +95,7 @@ class RouteFinder extends React.Component {
 
     return (
       <View style={styles.container} >
-        <Form updateLocation={this._updateLocation(this)} getRoute={this._getRoute.bind(this)} url={this.state.shortestRoute.shortURL} />
+        <Form updateLocation={this._updateLocation(this)} getRoute={this._getRoute.bind(this)} url={this.state.shortestRoute.shortURL} isLoading={this.state.isLoading} setLoading={this.setLoading.bind(this)} />
         <MapView
           style={ styles.map }
           initialRegion={{
