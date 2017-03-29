@@ -11,10 +11,11 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
-    alignSelf: 'stretch',
     marginRight: 10,
-    backgroundColor: '#47CFEA'
+    backgroundColor: '#47CFEA',
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+    // alignItems: 'center'
   },
   linkText: {
     color: 'white',
