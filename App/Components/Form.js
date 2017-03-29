@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     flexDirection: 'column',
     zIndex: 1
+  },
+  fieldWrapper: {
+    
   }
 });
 
@@ -28,8 +31,10 @@ class Form extends React.Component {
     console.log('props in Form', this)
     return (
       <View style={styles.container} >
+        <View>
+        </View>
         <LocationField locationType='origin' updateLocation={this.props.updateLocation} />
-        <LocationField locationType='destination' updateLocation={this.props.updateLocation} />
+        {<LocationField locationType='destination' updateLocation={this.props.updateLocation} />}
       </View>
     );
   }

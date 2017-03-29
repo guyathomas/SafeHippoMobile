@@ -45,24 +45,53 @@ class LocationField extends React.Component{
             types: 'address', // default: 'geocode'
           }}
           styles={{
+            container: {
+              // backgroundColor: 'black'
+            },
+            description: { //Background of the text in the results
+              // backgroundColor: 'white' //
+            },
             textInputContainer: {
+              // display:'none',
               backgroundColor: 'rgba(0,0,0,0)',
               borderTopWidth: 0,
               borderBottomWidth:0,
-              paddingTop: 20,
-              flex: 1,
-              margin: 10
+              marginLeft: 10,
+              marginRight: 10,
+              marginTop: 20,
+              marginBottom: -10,
+              paddingTop: 0
             },
             textInput: {
+              //Entire container for text
+              // backgroundColor: 'black',
               marginLeft: 0,
               marginRight: 0,
               height: 38,
               color: '#5d5d5d',
               fontSize: 16
             },
+            loader: {
+
+            },
             listView: {
+              //Entire cell of results
+              marginRight: 10,
+              marginLeft: 10,
+              flexDirection: 'column',
               backgroundColor: 'white',
+              alignContent: 'flex-end',
               marginTop: 0
+            },
+            predefinedPlacesDescription: {
+              //Equivalent of description but for 'current location' & other preloaded locations
+
+            },
+            poweredContainer: {
+              //Not sure
+            },
+            powered: {
+              //Not sure
             }
           }}
           
