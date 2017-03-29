@@ -6,6 +6,7 @@ import {
   TextInput
 } from 'react-native';
 import LocationField from './LocationField'
+import TakeMeHome from './TakeMeHome'
 
 
 const styles = StyleSheet.create({
@@ -30,7 +31,8 @@ class Form extends React.Component {
         <View>
         </View>
         <LocationField locationType='origin' updateLocation={this.props.updateLocation} />
-        {<LocationField locationType='destination' updateLocation={this.props.updateLocation} />}
+        <LocationField locationType='destination' updateLocation={this.props.updateLocation} />
+        <TakeMeHome getRoute={this.props.getRoute} />
       </View>
     );
   }

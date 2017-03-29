@@ -33,7 +33,8 @@ class RouteFinder extends React.Component {
     super(props);
     this.state = {
       origin: { lat: 37.78825, lon: -122.4324 },
-      destination: { lat: 37.79825, lon: -122.4724 }
+      destination: { lat: 37.79825, lon: -122.4724 },
+      shortestRoute: {}
     }
   }
 
@@ -57,6 +58,22 @@ class RouteFinder extends React.Component {
     }
   }
 
+  _getRoute() {
+    const origin = this.state.origin;
+    const destination = this.state.destination;
+    const url = `https://safehippo.com/safestRoute?originLat=${origin.lat}&originLon=${origin.lon}&destLat=${destination.lat}&destLon=${destination.lon}`
+
+    console.log(url);
+
+    fetch(url)
+    .then(res => res.json())
+    .then((parseRes) => {
+      this.setState({
+        shortestRoute: parseRes
+      })
+    })
+  }
+
   render() {
     const center = {
       lat: (this.state.origin.lat + this.state.destination.lat) / 2,
@@ -69,7 +86,7 @@ class RouteFinder extends React.Component {
 
     return (
       <View style={styles.container} >
-        <Form updateLocation={this._updateLocation(this)} />
+        <Form updateLocation={this._updateLocation(this)} getRoute={this._getRoute.bind(this)} />
         <MapView
           style={ styles.map }
           initialRegion={{
