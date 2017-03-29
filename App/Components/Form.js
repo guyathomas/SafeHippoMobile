@@ -36,7 +36,7 @@ class Form extends React.Component {
 
   showLink() {
     console.log(this)
-    if (this.props.url) {
+    if (this.props.url || this.props.isLoading) {
       return (<RouteLink url={this.props.url} isLoading={this.props.isLoading} />)
     } else {
       return  (<View />)
