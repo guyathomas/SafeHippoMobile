@@ -41,7 +41,6 @@ class RouteFinder extends React.Component {
       lat: (this.state.origin.lat + this.state.destination.lat) / 2,
       lon: (this.state.origin.lon + this.state.destination.lon) / 2
     }
-
     const deltas = {
       lat: Math.abs(this.state.origin.lat - this.state.destination.lat),
       lon: Math.abs(this.state.origin.lon - this.state.destination.lon)

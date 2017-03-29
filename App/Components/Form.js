@@ -5,29 +5,20 @@ import {
   View,
   TextInput
 } from 'react-native';
-import GooglePlacesAutocomplete from 'react-native-google-places-autocomplete';
+import LocationField from './LocationField'
 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexDirection: 'row',
+    zIndex: 1/*,
+    backgroundColor: 'transparent'*/
   }
 });
 
-class InputField extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <View style={styles.container} >
-      </View>
-    );
-  }
-}
 
 class Form extends React.Component {
   constructor(props) {
@@ -37,6 +28,7 @@ class Form extends React.Component {
   render() {
     return (
       <View style={styles.container} >
+        <LocationField type='origin'/>
       </View>
     );
   }
