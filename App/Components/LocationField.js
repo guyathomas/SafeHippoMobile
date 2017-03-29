@@ -10,14 +10,10 @@ import env from '../../env.js'
  
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    flex: 1
   },
   inputWrapper: {
-    alignItems: 'flex-start',
     flexDirection: 'row',
-    flex: 1
   }
 })
 
@@ -27,8 +23,6 @@ class LocationField extends React.Component{
   }
   
   _handleInput(locationData, details) {
-    console.log('The locationData', locationData, details)
-    console.log('The prosp', this.props)
     this.props.updateLocation(this.props.locationType, locationData);
   }
 
@@ -75,10 +69,6 @@ class LocationField extends React.Component{
           currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
           currentLocationLabel="Current location"
           nearbyPlacesAPI='GoogleReverseGeocoding' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
-          GoogleReverseGeocodingQuery={{
-            'address': '944 Market Street'
-            // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
-          }}
         />
       </View>
     );

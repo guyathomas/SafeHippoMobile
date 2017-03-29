@@ -11,8 +11,8 @@ import LocationField from './LocationField'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
     flexDirection: 'column',
     zIndex: 1
   }
