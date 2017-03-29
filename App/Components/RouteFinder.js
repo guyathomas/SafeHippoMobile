@@ -36,6 +36,16 @@ class RouteFinder extends React.Component {
     }
   }
 
+  _updateLocation(locationType, data) {
+    if (locationType === 'origin') {
+      console.log('The new origin is', data)
+    } else if (locationType === 'destination') {
+      console.log('The new destination is', data)
+    } else {
+      console.log('The locationTypetype was invalid', locationType)
+    }
+  }
+
   render() {
     const center = {
       lat: (this.state.origin.lat + this.state.destination.lat) / 2,
@@ -48,7 +58,7 @@ class RouteFinder extends React.Component {
 
     return (
       <View style={styles.container} >
-        <Form />
+        <Form updateLocation={this._updateLocation.bind(this)/>
         <MapView
           style={ styles.map }
           initialRegion={{

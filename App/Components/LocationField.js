@@ -19,7 +19,16 @@ const styles = StyleSheet.create({
   }
 })
 
-var LocationField = React.createClass({
+class LocationField extends React.Component{
+  constructor(props) {
+    super(props)
+  }
+  
+  _handleInput(locationData) {
+    console.log('The locationData', locationData)
+    this.props.updateLocation(locationData);
+  }
+
   render() {
     return (
       <GooglePlacesAutocomplete
@@ -27,10 +36,7 @@ var LocationField = React.createClass({
         minLength={2} // minimum length of text to search
         autoFocus={false}
         fetchDetails={true}
-        onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
-          console.log('data', data);
-          console.log('details', details);
-        }}
+        onPress={this._handleInput.bind(this)}
         getDefaultValue={() => {
           return ''; // text input default value
         }}
@@ -72,6 +78,6 @@ var LocationField = React.createClass({
       />
     );
   }
-});
+}
 
 module.exports = LocationField;

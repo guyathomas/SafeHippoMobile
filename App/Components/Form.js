@@ -28,7 +28,8 @@ class Form extends React.Component {
   render() {
     return (
       <View style={styles.container} >
-        <LocationField type='origin'/>
+        <LocationField type='origin' updateLocation={this._updateLocation} />
+        <LocationField type='destination' updateLocation={this._updateLocation} />
       </View>
     );
   }
