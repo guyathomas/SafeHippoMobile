@@ -21,9 +21,14 @@ const styles = StyleSheet.create({
 });
 
 class SafeHippoMobile extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+  }
 
   render() {
-    return (<RouteFinder />);
+    return (<RouteFinder origin={this.state.origin} destination={this.state.destination} />);
   }
 }
 

@@ -5,6 +5,7 @@ import {
   View
 } from 'react-native';
 import MapView from 'react-native-maps';
+import Form from './Form'
 
 
 const styles = StyleSheet.create({
@@ -29,18 +30,33 @@ const styles = StyleSheet.create({
 class RouteFinder extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      origin: { lat: 37.78825, lon: -122.4324 },
+      destination: { lat: 37.79825, lon: -122.4724 }
+    }
   }
 
   render() {
+    const center = {
+      lat: (this.state.origin.lat + this.state.destination.lat) / 2,
+      lon: (this.state.origin.lon + this.state.destination.lon) / 2
+    }
+
+    const deltas = {
+      lat: Math.abs(this.state.origin.lat - this.state.destination.lat),
+      lon: Math.abs(this.state.origin.lon - this.state.destination.lon)
+    }
+
     return (
       <View style={styles.container} >
+        <Form />
         <MapView
           style={ styles.map }
           initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitude: center.lat,
+            longitude: center.lon,
+            latitudeDelta: deltas.lat,
+            longitudeDelta: deltas.lon,
           }}
         />
       </View>
