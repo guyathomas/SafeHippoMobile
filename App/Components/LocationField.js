@@ -14,8 +14,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  test: {
-    fontSize: 20
+  inputWrapper: {
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+    flex: 1
   }
 })
 
@@ -32,51 +34,53 @@ class LocationField extends React.Component{
 
   render() {
     return (
-      <GooglePlacesAutocomplete
-        placeholder='Where are you going?'
-        minLength={2} // minimum length of text to search
-        autoFocus={false}
-        fetchDetails={true}
-        onPress={this._handleInput.bind(this)}
-        getDefaultValue={() => {
-          return ''; // text input default value
-        }}
-        query={{
-          // available options: https://developers.google.com/places/web-service/autocomplete
-          key: env.GOOGLE_KEY,
-          language: 'en', // language of the results
-          types: 'address', // default: 'geocode'
-        }}
-        styles={{
-          textInputContainer: {
-            backgroundColor: 'rgba(0,0,0,0)',
-            borderTopWidth: 0,
-            borderBottomWidth:0,
-            paddingTop: 20,
-            flex: 1,
-            margin: 10
-          },
-          textInput: {
-            marginLeft: 0,
-            marginRight: 0,
-            height: 38,
-            color: '#5d5d5d',
-            fontSize: 16
-          },
-          listView: {
-            backgroundColor: 'white',
-            marginTop: 0
-          }
-        }}
-        
-        currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
-        currentLocationLabel="Current location"
-        nearbyPlacesAPI='GoogleReverseGeocoding' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
-        GoogleReverseGeocodingQuery={{
-          'address': '944 Market Street'
-          // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
-        }}
-      />
+      <View style={styles.inputWrapper}>
+        <GooglePlacesAutocomplete
+          placeholder='Search'
+          minLength={2} // minimum length of text to search
+          autoFocus={false}
+          fetchDetails={true}
+          onPress={this._handleInput.bind(this)}
+          getDefaultValue={() => {
+            return ''; // text input default value
+          }}
+          query={{
+            // available options: https://developers.google.com/places/web-service/autocomplete
+            key: env.GOOGLE_KEY,
+            language: 'en', // language of the results
+            types: 'address', // default: 'geocode'
+          }}
+          styles={{
+            textInputContainer: {
+              backgroundColor: 'rgba(0,0,0,0)',
+              borderTopWidth: 0,
+              borderBottomWidth:0,
+              paddingTop: 20,
+              flex: 1,
+              margin: 10
+            },
+            textInput: {
+              marginLeft: 0,
+              marginRight: 0,
+              height: 38,
+              color: '#5d5d5d',
+              fontSize: 16
+            },
+            listView: {
+              backgroundColor: 'white',
+              marginTop: 0
+            }
+          }}
+          
+          currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
+          currentLocationLabel="Current location"
+          nearbyPlacesAPI='GoogleReverseGeocoding' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
+          GoogleReverseGeocodingQuery={{
+            'address': '944 Market Street'
+            // available options for GoogleReverseGeocoding API : https://developers.google.com/maps/documentation/geocoding/intro
+          }}
+        />
+      </View>
     );
   }
 }

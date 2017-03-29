@@ -11,11 +11,10 @@ import LocationField from './LocationField'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
-    flexDirection: 'row',
-    zIndex: 1/*,
-    backgroundColor: 'transparent'*/
+    flexDirection: 'column',
+    zIndex: 1
   }
 });
 
