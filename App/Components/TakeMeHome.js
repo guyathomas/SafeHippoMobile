@@ -10,8 +10,7 @@ import {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginLeft: 10
+    flex: 1
   },
   button: {
     alignItems: 'center'
