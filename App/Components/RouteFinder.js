@@ -5,7 +5,7 @@ import {
   View
 } from 'react-native';
 import MapView from 'react-native-maps';
-import Form from './Form'
+import Form from './Form';
 import env from '../../env.js';
 
 
@@ -86,7 +86,7 @@ class RouteFinder extends React.Component {
 
     return (
       <View style={styles.container} >
-        <Form updateLocation={this._updateLocation(this)} getRoute={this._getRoute.bind(this)} />
+        <Form updateLocation={this._updateLocation(this)} getRoute={this._getRoute.bind(this)} url={this.state.shortestRoute.shortURL} />
         <MapView
           style={ styles.map }
           initialRegion={{

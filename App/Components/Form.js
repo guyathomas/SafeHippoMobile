@@ -7,15 +7,20 @@ import {
 } from 'react-native';
 import LocationField from './LocationField'
 import TakeMeHome from './TakeMeHome'
+import RouteLink from './RouteLink';
+
 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    // justifyContent: 'flex-start',
     flexDirection: 'column',
     zIndex: 1
+  }, 
+  homeContainer: {
+    flexDirection: 'row'
   }
 });
 
@@ -25,14 +30,23 @@ class Form extends React.Component {
     super(props);
   }
 
+  showLink() {
+    return this.props.url ? <RouteLink url={this.props.url} /> : <View />
+  }
+
   render() {
+    console.log(this.props)
     return (
       <View style={styles.container} >
         <View>
         </View>
         <LocationField locationType='origin' updateLocation={this.props.updateLocation} />
         <LocationField locationType='destination' updateLocation={this.props.updateLocation} />
-        <TakeMeHome getRoute={this.props.getRoute} />
+        <View style={styles.homeContainer} >
+          <TakeMeHome getRoute={this.props.getRoute} />
+          {this.showLink()}
+        </View>
+
       </View>
     );
   }
