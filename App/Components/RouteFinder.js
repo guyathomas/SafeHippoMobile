@@ -6,6 +6,7 @@ import {
 } from 'react-native';
 import MapView from 'react-native-maps';
 import Form from './Form'
+import env from '../../env.js';
 
 
 const styles = StyleSheet.create({
@@ -36,15 +37,23 @@ class RouteFinder extends React.Component {
     }
   }
 
+
+
+  _coordsFromLocationID(locationID) {
+    return fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${locationID}&key=${env.GOOGLE_KEY}`)
+    .then(res => res.json())
+  }
   _updateLocation(context) {
     return function(locationType, data) {
-      if (locationType === 'origin') {
-        console.log('The new origin is', data)
-      } else if (locationType === 'destination') {
-        console.log('The new destination is', data)
-      } else {
-        console.log('The locationTypetype was invalid', locationType)
-      }
+      context._coordsFromLocationID(data.place_id)
+      .then(response => {
+        context.setState({
+          [locationType]: {
+            lat: response.result.geometry.location.lat,
+            lon: response.result.geometry.location.lng
+          }
+        }, () => {console.log('context.state', locationType, context.state)})
+      })
     }
   }
 

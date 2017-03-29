@@ -24,8 +24,8 @@ class LocationField extends React.Component{
     super(props)
   }
   
-  _handleInput(locationData) {
-    console.log('The locationData', locationData)
+  _handleInput(locationData, details) {
+    console.log('The locationData', locationData, details)
     console.log('The prosp', this.props)
     this.props.updateLocation(this.props.locationType, locationData);
   }
@@ -45,7 +45,7 @@ class LocationField extends React.Component{
           // available options: https://developers.google.com/places/web-service/autocomplete
           key: env.GOOGLE_KEY,
           language: 'en', // language of the results
-          types: 'geocode', // default: 'geocode'
+          types: 'address', // default: 'geocode'
         }}
         styles={{
           textInputContainer: {
