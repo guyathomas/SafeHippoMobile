@@ -78,14 +78,16 @@ class LocationField extends React.Component{
               marginLeft: 10,
               flexDirection: 'column',
               backgroundColor: 'white',
-              marginTop: 0
+              marginTop: 20
             },
             predefinedPlacesDescription: {
               //Equivalent of description but for 'current location' & other preloaded locations
 
             },
             poweredContainer: {
-              //Not sure
+              //The Google 'powered by' logo
+              opacity: 0,
+              height: 0
             },
             powered: {
               //Not sure
