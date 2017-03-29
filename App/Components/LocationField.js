@@ -32,14 +32,14 @@ class LocationField extends React.Component{
           autoFocus={false}
           fetchDetails={true}
           onPress={this._handleInput.bind(this)}
-          getDefaultValue={() => {
-            return ''; // text input default value
-          }}
+          // getDefaultValue={() => {
+            // return ''; // text input default value
+          // }}
           query={{
             // available options: https://developers.google.com/places/web-service/autocomplete
             key: env.GOOGLE_KEY,
             language: 'en', // language of the results
-            types: 'address', // default: 'geocode'
+            types: 'geocode', // default: 'geocode'
           }}
           styles={{
             container: {
@@ -78,7 +78,6 @@ class LocationField extends React.Component{
               marginLeft: 10,
               flexDirection: 'column',
               backgroundColor: 'white',
-              alignContent: 'flex-end',
               marginTop: 0
             },
             predefinedPlacesDescription: {

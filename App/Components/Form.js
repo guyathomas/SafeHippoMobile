@@ -20,7 +20,9 @@ const styles = StyleSheet.create({
     zIndex: 1
   }, 
   homeContainer: {
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: 20,
+    alignItems: 'center'
   }
 });
 

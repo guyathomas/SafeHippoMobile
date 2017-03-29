@@ -46,6 +46,7 @@ class RouteFinder extends React.Component {
   }
   _updateLocation(context) {
     return function(locationType, data) {
+      console.log('The data from autofill location is', data)
       context._coordsFromLocationID(data.place_id)
       .then(response => {
         context.setState({

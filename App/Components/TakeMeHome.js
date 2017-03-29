@@ -11,17 +11,17 @@ import {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    marginTop: 20,
-    alignItems: 'flex-start'
+    marginLeft: 10
   },
   button: {
-    borderRadius: 5
+    // borderRadius: 5
+    // justifyContent: 'center'
+    alignItems: 'center'
   }, 
   buttonText: {
     backgroundColor: '#27A1AB',
     color: 'white',
-    fontSize: 24,
+    fontSize: 22,
     padding: 10
   }
 });

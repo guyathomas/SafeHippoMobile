@@ -12,10 +12,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 20,
-    alignItems: 'stretch'
+    alignSelf: 'stretch',
+    marginRight: 10,
+    backgroundColor: '#47CFEA'
   },
   linkText: {
-    color: 'white'
+    color: 'white',
+    alignSelf: 'center',
+    justifyContent: 'center'
   }
 });
 
@@ -29,7 +33,7 @@ class RouteLink extends React.Component {
     console.log('this.props.url in RouteLink', this.props.url)
     return (
       <View style={styles.container} >
-        <Text>{this.props.url}</Text>
+        <Text style={styles.linkText} >{this.props.url}</Text>
       </View>
     );
   }
