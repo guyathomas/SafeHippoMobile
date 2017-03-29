@@ -9,9 +9,6 @@ var {GooglePlacesAutocomplete} = require('react-native-google-places-autocomplet
 import env from '../../env.js'
  
 const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
   inputWrapper: {
     flexDirection: 'row',
   }
@@ -30,7 +27,7 @@ class LocationField extends React.Component{
     return (
       <View style={styles.inputWrapper}>
         <GooglePlacesAutocomplete
-          placeholder='Search'
+          placeholder= {this.props.locationType === 'origin' ? 'Where are you leaving from?' : 'Where are you going to?'}
           minLength={2} // minimum length of text to search
           autoFocus={false}
           fetchDetails={true}
@@ -69,7 +66,8 @@ class LocationField extends React.Component{
               marginRight: 0,
               height: 38,
               color: '#5d5d5d',
-              fontSize: 16
+              fontSize: 16,
+              textAlign: 'center'
             },
             loader: {
 
