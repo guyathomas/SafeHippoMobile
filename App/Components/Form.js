@@ -26,10 +26,11 @@ class Form extends React.Component {
   }
 
   render() {
+    console.log('props in Form', this)
     return (
       <View style={styles.container} >
-        <LocationField type='origin' updateLocation={this._updateLocation} />
-        <LocationField type='destination' updateLocation={this._updateLocation} />
+        <LocationField locationType='origin' updateLocation={this.props.updateLocation} />
+        <LocationField locationType='destination' updateLocation={this.props.updateLocation} />
       </View>
     );
   }

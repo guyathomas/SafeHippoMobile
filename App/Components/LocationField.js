@@ -26,7 +26,8 @@ class LocationField extends React.Component{
   
   _handleInput(locationData) {
     console.log('The locationData', locationData)
-    this.props.updateLocation(locationData);
+    console.log('The prosp', this.props)
+    this.props.updateLocation(this.props.locationType, locationData);
   }
 
   render() {
